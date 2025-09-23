@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=3 uid="uid://g3fyof12r4q8"]
+
+[ext_resource type="Texture2D" uid="uid://bh2i2pbd72n30" path="res://Assets Super Mario Bros/Sprites/GroundBlock.png" id="1_ihq7c"]
+[ext_resource type="Texture2D" uid="uid://8as4lix1a8pr" path="res://Assets Super Mario Bros/Sprites/HardBlock.png" id="2_cuahu"]
+[ext_resource type="Texture2D" uid="uid://dbhkvad8kmca" path="res://Assets Super Mario Bros/Sprites/UndergroundBlock.png" id="3_0w6jv"]
+[ext_resource type="Texture2D" uid="uid://dtkrgfs1x5qrr" path="res://Assets Super Mario Bros/Sprites/UndergroundBrick.png" id="4_j4u3s"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2aoo7"]
+texture = ExtResource("1_ihq7c")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oaal6"]
+texture = ExtResource("2_cuahu")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3ff7"]
+texture = ExtResource("3_0w6jv")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h7liu"]
+texture = ExtResource("4_j4u3s")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_yclwy"]
+physics_layer_0/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_2aoo7")
+sources/1 = SubResource("TileSetAtlasSource_oaal6")
+sources/2 = SubResource("TileSetAtlasSource_c3ff7")
+sources/3 = SubResource("TileSetAtlasSource_h7liu")
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.75, 2.75)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_yclwy")
+format = 2
