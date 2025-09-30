@@ -1,13 +1,15 @@
-extends Area2D
+extends Enemy
 
-class_name Enemy
+func die(): 
+	super.die()
+	set_collision_layer_value(3, false)
+	set_collision_mask_value(1, false)
+	get_tree().create_timer(0.5).timeout.connect(queue_free)
 
-@export var horizontal_speed = 20
-@export var vertical_speed = 100
-@onready var ray_cast_2d = $RayCast2D as RayCast2D
 
-func _process(delta):
-	position.x -= horizontal_speed * delta
+func _on_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
 
-	if !ray_cast_2d.is_colliding():
-		position.y += vertical_speed * delta
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	pass # Replace with function body.
